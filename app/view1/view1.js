@@ -1,14 +1,18 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.view1', [])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
-  });
-}])
+.controller('View1Ctrl', ['$scope', '$sce', function(sc, $sce) {
+	
+                    //hljs.configure({useBR: true});
 
-.controller('View1Ctrl', [function() {
+                    sc.change = function() {
+                        //sc.author = sc.code;
 
-}]);
+                        var formattedCode = hljs.highlightAuto(sc.code);
+                        sc.formatted = $sce.trustAsHtml(formattedCode.value.replace(/(?:\r\n|\r|\n)/g, '<br />'));
+                    }
+
+
+                }]
+           );
