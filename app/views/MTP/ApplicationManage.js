@@ -1,21 +1,27 @@
 'use strict';
+var servicesConfig = [
+    {
+        name: 'WXMIS007',
+        url: 'http://localhost/WEB.MonitorService/MonitorService.svc/XMLService/AppList'
+    }
+];
 
-angular.module('myApp.view3', ['ngRoute', 'ui.utils', 'ngResource', 'ui.grid','ui.bootstrap'])
+angular.module('myApp.ApplicationManagement', ['ui.utils', 'ngResource', 'ui.grid', 'ui.bootstrap'])
 
-.factory("AppList", function ($resource) {
-    return $resource("http://localhost/WEB.MonitorService/MonitorService.svc/XMLService/AppList", null, {
-        'get': {
-            isArray: true
-        }
-    });
-})
-
-.controller('AppMgmt', ['$scope', 'AppList',
-    function ($scope, AppList) {
+.controller('AppMgmt', ['$scope', '$resource',
+    function ($scope, $resource) {
         $scope.blurCallback = function (evt) {
             alert("haha, input:" + evt.target.value);
         };
 
+        $scope.servicesConfig = servicesConfig;
+        $scope.hstep = 1;
+        $scope.mstep = 15;
+
+        $scope.options = {
+            hstep: [1, 2, 3],
+            mstep: [1, 5, 10, 15, 25, 30]
+        };
         $scope.$scope = $scope;
         $scope.gridOptions = {
             columnDefs: [
@@ -36,16 +42,17 @@ angular.module('myApp.view3', ['ngRoute', 'ui.utils', 'ngResource', 'ui.grid','u
                 },
                 {
                     field: 'EnabledProcessors',
-                    displayName: 'Enabled Processors'
+                    displayName: 'Enabled Processors',
+                    width: 180
                 },
                 {
                     field: 'Actions',
                     displayName: 'Actions',
                     width: 200,
-                    //cellTemplate: '<button ng-click="getExternalScopes().startApp(row.entity)">Start</button>'
-                    cellTemplate: '<div class="btn-group"><label class="btn btn-primary" ng-click="getExternalScopes().startApp(row.entity)" ng-model="radioModel" btn-radio="\'Left\'">Left</label>'+
-        '<label class="btn btn-primary" ng-model="radioModel" btn-radio="\'Middle\'">Middle</label>'+
-        '<label class="btn btn-primary" ng-model="radioModel" btn-radio="\'Right\'">Right</label></div>'
+                    cellTemplate: '<input class="btn btn-default" click="getExternalScopes().startApp(row.entity)" type="button" value="Start">'
+                    //                    cellTemplate: '<div class="btn-group"><label class="btn btn-primary" ng-click="getExternalScopes().startApp(row.entity)" ng-model="radioModel" btn-radio="\'Left\'">Left</label>'+
+                    //        '<label class="btn btn-primary" ng-model="radioModel" btn-radio="\'Middle\'">Middle</label>'+
+                    //        '<label class="btn btn-primary" ng-model="radioModel" btn-radio="\'Right\'">Right</label></div>'
                 }
             ]
         };
@@ -54,7 +61,19 @@ angular.module('myApp.view3', ['ngRoute', 'ui.utils', 'ngResource', 'ui.grid','u
             console.log(row);
         };
 
-        var entry = AppList.get({}, function (appList) {
+        var serviceList = [];
+        servicesConfig.forEach(function (service) {
+            serviceList.push({
+                name: service.name,
+                resource: $resource(service.url, null, {
+                    'get': {
+                        isArray: true
+                    }
+                })
+            });
+        });
+
+        var entry = serviceList[0].resource.get({}, function (appList) {
             console.log(appList);
             var myData = [];
             appList.forEach(function (app) {

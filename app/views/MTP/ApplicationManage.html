@@ -1,9 +1,18 @@
 <p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-    
+    Showing of 'interpolate' filter: {{ 'Current version is v%VERSION%.' | interpolate }}
+
 </p>
 <p>
-<input ui-event="{blur:'blurCallback($event)'}">
+    <input ui-event="{blur:'blurCallback($event)'}">
 </p>
-<div id="grid1" ui-grid="gridOptions" class="grid" external-scopes="$scope"  ></div>
+<div class="btn-group" dropdown is-open="status.isopen">
+    <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+        Button dropdown <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <li ng-repeat="service in servicesConfig"><a >{{service.name}}</a>
+        </li>
+    </ul>
+</div>
+<select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+<div id="grid1" ui-grid="gridOptions" class="grid" external-scopes="$scope" style="height:800px"></div>
