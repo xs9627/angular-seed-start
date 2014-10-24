@@ -16,12 +16,7 @@ angular.module('myApp.ApplicationManagement', ['ui.utils', 'ngResource', 'ui.gri
 
         $scope.servicesConfig = servicesConfig;
         $scope.hstep = 1;
-        $scope.mstep = 15;
-
-        $scope.options = {
-            hstep: [1, 2, 3],
-            mstep: [1, 5, 10, 15, 25, 30]
-        };
+        
         $scope.$scope = $scope;
         $scope.gridOptions = {
             columnDefs: [
@@ -59,6 +54,10 @@ angular.module('myApp.ApplicationManagement', ['ui.utils', 'ngResource', 'ui.gri
 
         $scope.startApp = function (row) {
             console.log(row);
+        };
+        
+        $scope.getServiceInfo = function (serviceName) {
+            console.log(serviceName);
         };
 
         var serviceList = [];
