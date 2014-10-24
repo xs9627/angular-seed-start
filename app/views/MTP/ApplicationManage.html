@@ -10,7 +10,7 @@
         Services <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-        <li ng-repeat="service in servicesConfig"><a ng-click="getServiceInfo(service.name)">{{service.name}}</a>
+        <li ng-repeat="service in servicesConfig"><a href ng-click="getServiceInfo(service.name)">{{service.name}}</a>
         </li>
         <li class="divider"></li>
         <li><a>All</a></li>
