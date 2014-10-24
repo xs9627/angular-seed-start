@@ -2,8 +2,10 @@
 
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
-    'myApp.main',
-    'ui.router'
+        'ui.router',
+        'myApp.view3',
+    'myApp.view2',
+    'myApp.version'
 ])
 //.config(['$routeProvider', function($routeProvider) {
 //  //$routeProvider.otherwise({redirectTo: '/view2'});
@@ -17,7 +19,22 @@ angular.module('myApp', [
 )
 .config(['$stateProvider','$urlRouterProvider',
         function($stateProvider,$urlRouterProvider){
-            
+            $urlRouterProvider.otherwise("MTP");
+            $stateProvider.state("MTP", {
+                url: '/MTP',
+                template: '<div ui-view class="container">'
+            })
+                .state("MTP.ApplicationManage", {
+                    url: '/ApplicationManage',
+                    templateUrl: 'views/MTP/ApplicationManage.html',
+                    controller: 'AppMgmt'
+
+                })
+                .state("view2", {
+                    url: '/view2',
+                    templateUrl: 'view2/view2.html',
+                    controller: 'View2Ctrl'
+                })
         }
         ]
 );
