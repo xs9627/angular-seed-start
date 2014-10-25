@@ -10,22 +10,21 @@ angular.module('myApp', [
 //.config(['$routeProvider', function($routeProvider) {
 //  //$routeProvider.otherwise({redirectTo: '/view2'});
 //}]);
-.run(['$rootScope','$state','$stateParams',
+.run(['$rootScope', '$state', '$stateParams',
       function ($rootScope, $state, $stateParams) {
-          $rootScope.$state = $state;
-          $rootScope.$stateParams = $stateParams;
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
       }
-     ]
-)
-.config(['$stateProvider','$urlRouterProvider',
-        function($stateProvider,$urlRouterProvider){
+     ])
+    .config(['$stateProvider', '$urlRouterProvider',
+        function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise("MTP");
             $stateProvider.state("MTP", {
                 url: '/MTP',
                 template: '<div ui-view class="container">'
             })
                 .state("MTP.ApplicationManage", {
-                    url: '/ApplicationManage',
+                    url: '/ApplicationManage/:serverName',
                     templateUrl: 'views/MTP/ApplicationManage.html',
                     controller: 'AppMgmt'
 
@@ -36,6 +35,4 @@ angular.module('myApp', [
                     controller: 'View2Ctrl'
                 })
         }
-        ]
-);
-
+        ]);

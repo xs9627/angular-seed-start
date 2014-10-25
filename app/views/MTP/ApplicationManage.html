@@ -5,7 +5,7 @@
 <p>
     <input ui-event="{blur:'blurCallback($event)'}">
 </p>
-<div class="btn-group" dropdown is-open="status.isopen">
+<!--<div class="btn-group" dropdown is-open="status.isopen">
     <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
         Services <span class="caret"></span>
     </button>
@@ -15,9 +15,9 @@
         <li class="divider"></li>
         <li><a>All</a></li>
     </ul>
-</div>
-<div class="col-md-6">
-<select class="form-control" ng-model="selected" ng-options="service.name for service in servicesConfig">
+</div>-->
+<div class="col-md-12">
+<select class="form-control" ng-model="serverName" ng-options="serverName for serverName in serverNames">
     <option value="" class=""></option>
 </select>
 </div>
