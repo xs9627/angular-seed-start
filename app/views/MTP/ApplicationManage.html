@@ -9,34 +9,32 @@
         <li><a>All</a></li>
     </ul>
 </div>-->
-<div class="page-header">
-    <h3>
-        Application Manage
-    </h3>
-</div>
-<div class="row">
 
-    <div class="col-lg-2">
-<select class="form-control" ng-model="serverName" ng-options="serverName for serverName in serverNames">
-    <option value="" class=""></option>
-</select>
-        </div>
-        <div class="col-md-3">
-<select class="form-control" ng-model="serverName" ng-options="serverName for serverName in serverNames">
-    <option value="" class=""></option>
-</select>
-        </div>
-    <div class="col-md-1">
-        <button class="btn btn-info">Query</button>
+<div  class="fill">
+<div class="row content" >
+    <div class="col-xs-3">
+        Server:
+        <select class="form-control" ng-model="serverName" ng-options="serverName for serverName in serverNames">
+            <option value="" class=""></option>
+        </select>
     </div>
-
-    <div class="col-md-12" style="margin:10px 0;">
-        
-        <button class="btn btn-info">Start</button>
-            <button class="btn btn-info">Stop</button>
-            <button class="btn btn-info">Restart</button>
-    
+    <div class="col-xs-3">
+        Application:
+        <select class="form-control" ng-model="serverName" ng-options="serverName for serverName in serverNames">
+            <option value="" class=""></option>
+        </select>
+    </div>
+    <div class="col-xs-2" style="margin-top:20px">
+        <button ui-sref="MTP.ApplicationManage({serverName:serverName})" class="btn btn-info">Query</button>
     </div>
 </div>
-<hr>
-<div id="grid1" ui-grid="gridOptions" class="grid" external-scopes="$scope" style="height:800px"></div>
+<div class="row content">
+    <div class="col-xs-4 ">
+        <button class="btn btn-sm btn-info" ng-click="selectAll()">Start</button>
+        <button class="btn btn-sm btn-info">Stop</button>
+        <button class="btn btn-sm btn-info">Restart</button>
+    </div>
+</div>
+
+<div id="grid1" ui-grid="gridOptions" ui-grid-selection class="grid" external-scopes="$scope" style="width:700px;height:87%"></div>
+</div>

@@ -21,11 +21,12 @@ angular.module('myApp', [
             $urlRouterProvider.otherwise("MTP");
             $stateProvider.state("MTP", {
                 url: '/MTP',
-                template: '<div ui-view class="container">'
+                //template: '<div ui-view class="container">'
+                templateUrl: 'views/MTP/main.html',
             })
                 .state("MTP.ApplicationManage", {
                     url: '/ApplicationManage/:serverName',
-                    templateUrl: 'views/MTP/ApplicationManage.html',
+                    templateUrl: 'views/MTP/applicationManage.html',
                     controller: 'AppMgmt'
 
                 })
