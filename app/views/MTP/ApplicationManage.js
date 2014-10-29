@@ -45,7 +45,8 @@ angular.module('myApp.ApplicationManagement', ['ui.utils', 'ngResource', 'ui.gri
             $scope.$scope = $scope;
             $scope.gridOptions = {
                 //enableRowSelection: true,
-                enableSelectAll: true
+                enableSelectAll: true,
+                data: []
             };
             $scope.gridOptions.columnDefs = [
                 {
