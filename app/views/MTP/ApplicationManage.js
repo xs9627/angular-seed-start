@@ -57,8 +57,7 @@ angular.module('myApp.ApplicationManagement', ['ui.utils', 'ngResource', 'ui.gri
                 },
                 {
                     field: 'ApplicationName',
-                    displayName: 'Application Name',
-                    width: 200
+                    displayName: 'Application Name'
                 },
                 {
                     field: 'Status',
