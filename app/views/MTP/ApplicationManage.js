@@ -44,8 +44,9 @@ angular.module('myApp.ApplicationManagement', ['ui.utils', 'ngResource', 'ui.gri
         function initView() {
             $scope.$scope = $scope;
             $scope.gridOptions = {
-                //enableRowSelection: true,
+                enableRowSelection: true,
                 enableSelectAll: true,
+                multiSelect: true,
                 data: []
             };
             $scope.gridOptions.columnDefs = [
@@ -79,8 +80,7 @@ angular.module('myApp.ApplicationManagement', ['ui.utils', 'ngResource', 'ui.gri
  //                        //        '<label class="btn btn-primary" ng-model="radioModel" btn-radio="\'Right\'">Right</label></div>'
  //                }
             ];
-            $scope.gridOptions.enableRowHeaderSelection = true;
-            $scope.gridOptions.multiSelect = true;
+
             $scope.gridOptions.onRegisterApi = function (gridApi) {
                 //set gridApi on scope
                 $scope.gridApi = gridApi;
