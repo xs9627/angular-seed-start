@@ -1,16 +1,16 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('controlCenter', [
         'ui.router',
-        'myApp.mtpController',
-    'myApp.view2',
-    'myApp.version'
+        'controlCenter.mtpController',
+    'controlCenter.view2',
+    'controlCenter.version'
 ])
-.run(['$rootScope', '$state', '$stateParams',
+    .run(['$rootScope', '$state', '$stateParams',
       function ($rootScope, $state, $stateParams) {
-        $rootScope.$state = $state;
-        $rootScope.$stateParams = $stateParams;
+            $rootScope.$state = $state;
+            $rootScope.$stateParams = $stateParams;
       }
      ])
     .config(['$stateProvider', '$urlRouterProvider',

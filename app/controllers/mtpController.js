@@ -1,7 +1,7 @@
-angular.module('myApp.mtpController',['ui.utils', 'ui.grid', 'ui.grid.selection', 'ui.bootstrap'
-    , 'myApp.mtpFactory'])
-.controller('AppMgmt', ['$scope', 'monServers', '$stateParams', '$http',
-    function ($scope, monServers, $stateParams, $http) {
+angular.module('controlCenter.mtpController',['ui.utils', 'ui.grid', 'ui.grid.selection', 'ui.bootstrap'
+    , 'controlCenter.mtpServers'])
+.controller('AppMgmt', ['$scope', 'monServerList', '$stateParams', '$http',
+    function ($scope, monServerList, $stateParams, $http) {
 
         $scope.serverName = $stateParams.serverName;
         $scope.selectAll = function () {
@@ -14,7 +14,7 @@ angular.module('myApp.mtpController',['ui.utils', 'ui.grid', 'ui.grid.selection'
 
         function loadServicesConfig(servicesConfig) {
             $scope.serverNames = [];
-            monServers.forEach(function (service) {
+            monServerList.forEach(function (service) {
                 $scope.serverNames.push(service.name);
             });
             $scope.serverNames.push('All');
@@ -80,7 +80,7 @@ angular.module('myApp.mtpController',['ui.utils', 'ui.grid', 'ui.grid.selection'
         }
 
         function loadData() {
-            monServers.forEach(function (service) {
+            monServerList.forEach(function (service) {
                 if ($scope.serverName == 'All' || service.name == $scope.serverName) {
                     getData(service);
                 }

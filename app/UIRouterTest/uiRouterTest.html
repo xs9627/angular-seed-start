@@ -1,12 +1,12 @@
-<html ng-app="myApp">
+<html ng-app="controlCenter">
 <head>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script>
-        var myApp = angular.module('myApp', ['ui.router']);
+        var controlCenter = angular.module('controlCenter', ['ui.router']);
         // For Component users, it should look like this:
-        // var myApp = angular.module('myApp', [require('angular-ui-router')]);
-        myApp.config(function($stateProvider, $urlRouterProvider) {
+        // var controlCenter = angular.module('controlCenter', [require('angular-ui-router')]);
+        controlCenter.config(function($stateProvider, $urlRouterProvider) {
           //
           // For any unmatched url, redirect to /state1
           $urlRouterProvider.otherwise("/state1");

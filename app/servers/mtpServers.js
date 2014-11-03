@@ -9,8 +9,8 @@ var servicesConfig = [
     }
 ];
 
-angular.module('myApp.mtpFactory', ['ngResource'])
-.factory('monServers', ['$resource',
+angular.module('controlCenter.mtpServers', ['ngResource'])
+.factory('monServerList', ['$resource',
     function ($resource) {
         var services = [];
         servicesConfig.forEach(function (service) {

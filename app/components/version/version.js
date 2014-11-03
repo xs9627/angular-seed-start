@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('myApp.version', [
-  'myApp.version.interpolate-filter',
-  'myApp.version.version-directive'
+angular.module('controlCenter.version', [
+  'controlCenter.version.interpolate-filter',
+  'controlCenter.version.version-directive'
 ])
 
 .value('version', '0.1');
