@@ -1,19 +1,7 @@
-'use strict';
-var servicesConfig = [
-    {
-        name: 'WXMIS007',
-        url: 'http://localhost/WEB.MonitorService/MonitorService.svc/XMLService/AppList'
-    },
-    {
-        name: 'WXMIS008',
-        url: ''
-    }
-];
-
-angular.module('myApp.ApplicationManagement', ['ui.utils', 'ngResource', 'ui.grid', 'ui.grid.selection', 'ui.bootstrap'])
-
-.controller('AppMgmt', ['$scope', '$resource', '$stateParams', '$http',
-    function ($scope, $resource, $stateParams, $http) {
+angular.module('myApp.mtpController',['ui.utils', 'ui.grid', 'ui.grid.selection', 'ui.bootstrap'
+    , 'myApp.mtpFactory'])
+.controller('AppMgmt', ['$scope', 'monServers', '$stateParams', '$http',
+    function ($scope, monServers, $stateParams, $http) {
 
         $scope.serverName = $stateParams.serverName;
         $scope.selectAll = function () {
@@ -26,16 +14,7 @@ angular.module('myApp.ApplicationManagement', ['ui.utils', 'ngResource', 'ui.gri
 
         function loadServicesConfig(servicesConfig) {
             $scope.serverNames = [];
-            $scope.serviceList = [];
-            servicesConfig.forEach(function (service) {
-                $scope.serviceList.push({
-                    name: service.name,
-                    resource: $resource(service.url, null, {
-                        'get': {
-                            isArray: true
-                        }
-                    })
-                });
+            monServers.forEach(function (service) {
                 $scope.serverNames.push(service.name);
             });
             $scope.serverNames.push('All');
@@ -101,7 +80,7 @@ angular.module('myApp.ApplicationManagement', ['ui.utils', 'ngResource', 'ui.gri
         }
 
         function loadData() {
-            $scope.serviceList.forEach(function (service) {
+            monServers.forEach(function (service) {
                 if ($scope.serverName == 'All' || service.name == $scope.serverName) {
                     getData(service);
                 }

@@ -3,13 +3,10 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
         'ui.router',
-        'myApp.ApplicationManagement',
+        'myApp.mtpController',
     'myApp.view2',
     'myApp.version'
 ])
-//.config(['$routeProvider', function($routeProvider) {
-//  //$routeProvider.otherwise({redirectTo: '/view2'});
-//}]);
 .run(['$rootScope', '$state', '$stateParams',
       function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;
@@ -28,7 +25,6 @@ angular.module('myApp', [
                     url: '/ApplicationManage/:serverName',
                     templateUrl: 'views/MTP/applicationManage.html',
                     controller: 'AppMgmt'
-
                 })
                 .state("view2", {
                     url: '/view2',
