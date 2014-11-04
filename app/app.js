@@ -5,6 +5,7 @@ angular.module('controlCenter', [
         'ui.router',
         'controlCenter.mtpController',
     'controlCenter.view2',
+            'controlCenter.mainController',
     'controlCenter.version'
 ])
     .run(['$rootScope', '$state', '$stateParams',
@@ -20,6 +21,7 @@ angular.module('controlCenter', [
                 url: '/MTP',
                 //template: '<div ui-view class="container">'
                 templateUrl: 'views/MTP/main.html',
+                controller:'mainController'
             })
                 .state("MTP.ApplicationManage", {
                     url: '/ApplicationManage/:serverName',
@@ -28,7 +30,7 @@ angular.module('controlCenter', [
                 })
                 .state("view2", {
                     url: '/view2',
-                    templateUrl: 'view2/view2.html',
+                    templateUrl: 'views/view2.html',
                     controller: 'View2Ctrl'
                 })
         }
