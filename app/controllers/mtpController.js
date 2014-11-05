@@ -8,11 +8,11 @@ angular.module('controlCenter.mtpController',['ui.utils', 'ui.grid', 'ui.grid.se
             $scope.gridApi.selection.selectAllRows();
         };
 
-        loadServicesConfig(servicesConfig);
+        loadServicesConfig();
         initView();
         loadData();
 
-        function loadServicesConfig(servicesConfig) {
+        function loadServicesConfig() {
             $scope.serverNames = [];
             monServerList.forEach(function (service) {
                 $scope.serverNames.push(service.name);
