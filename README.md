@@ -1,3 +1,3 @@
-# Control Center
+# Management Center 2
 
-Control Center for IIS Management and MTP. 
+Management Center for IIS Management and MTP. 
