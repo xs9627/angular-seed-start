@@ -17,9 +17,9 @@ angular.module('controlCenter', [
         $urlRouterProvider.otherwise("MTP");
         $stateProvider.state("MTP", {
             url: '/MTP',
-            //template: '<div ui-view class="container">'
-            templateUrl: 'views/menu.html',
-            controller: 'mainController'
+            template: '<div ui-view class="container">'
+            //templateUrl: 'views/menu.html',
+            //controller: 'mainController'
         }).state("MTP.ApplicationManage", {
             url: '/ApplicationManage/:serverName',
             templateUrl: 'views/MTP/applicationManage.html',
@@ -27,7 +27,11 @@ angular.module('controlCenter', [
         }).state("MTP.empty",{
             url:'/empty/:temp',
             templateUrl:''
-        }).state("view2", {
+        }).state("IIS", {
+            url: "/IIS",
+            template: '<div ui-view class="container">'
+        })
+        .state("IIS.view2", {
             url: '/view2',
             templateUrl: 'views/view2.html',
             controller: 'View2Ctrl'
