@@ -18,15 +18,9 @@ angular.module('managementCenter', [
         $urlRouterProvider.otherwise("MTP");
         $stateProvider.state("MTP", {
             url: '/MTP',
-<<<<<<< HEAD
-            //template: '<div ui-view class="container">'
-            templateUrl: 'views/menu.html',
-            controller: 'menuCtrl'
-=======
             template: '<div ui-view class="container">'
             //templateUrl: 'views/menu.html',
             //controller: 'mainController'
->>>>>>> 96ed7cde8e1dc79e2f16cd841a57fdc63feeda6e
         }).state("MTP.ApplicationManage", {
             url: '/ApplicationManage/:serverName',
             templateUrl: 'views/MTP/applicationManage.html',
