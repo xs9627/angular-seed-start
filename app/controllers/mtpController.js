@@ -1,12 +1,8 @@
-angular.module('controlCenter.mtpController',['ui.utils', 'ui.grid', 'ui.grid.selection', 'ui.bootstrap'
-    , 'controlCenter.mtpServers'])
+angular.module('managementCenter.mtpController',['ui.utils', 'ui.grid', 'ui.grid.autoResize', 'ui.grid.selection'
+    , 'managementCenter.mtpServers'])
 .controller('AppMgmt', ['$scope', 'monServerList', '$stateParams', '$http',
     function ($scope, monServerList, $stateParams, $http) {
-
         $scope.serverName = $stateParams.serverName;
-        $scope.selectAll = function () {
-            $scope.gridApi.selection.selectAllRows();
-        };
 
         loadServicesConfig();
         initView();
@@ -32,21 +28,22 @@ angular.module('controlCenter.mtpController',['ui.utils', 'ui.grid', 'ui.grid.se
                 {
                     field: 'Server',
                     displayName: 'Server',
-                    width: 180
+                    width: '25%'
                 },
                 {
                     field: 'ApplicationName',
-                    displayName: 'Application Name'
+                    displayName: 'Application Name',
+                    width: '35%'
                 },
                 {
                     field: 'Status',
                     displayName: 'Status',
-                    width: 80
+                    width: '15%'
                 },
                 {
                     field: 'EnabledProcessors',
                     displayName: 'Enabled Processors',
-                    width: 180
+                    width: '*'
                 },
  //                    {
  //                        field: 'Actions',

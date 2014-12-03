@@ -1,7 +1,7 @@
 'use strict';
 
-describe('controlCenter.version module', function() {
-  beforeEach(module('controlCenter.version'));
+describe('managementCenter.version module', function() {
+  beforeEach(module('managementCenter.version'));
 
   describe('version service', function() {
     it('should return current version', inject(function(version) {

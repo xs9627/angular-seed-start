@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('controlCenter.view2', ['ui.utils'])
+angular.module('managementCenter.view2', ['ui.utils'])
 
 .controller('View2Ctrl', ['$scope', function($scope) {
     $scope.blurCallback = function(evt) {

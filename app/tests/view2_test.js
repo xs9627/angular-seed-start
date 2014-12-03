@@ -1,8 +1,8 @@
 'use strict';
 
-describe('controlCenter.view2 module', function() {
+describe('managementCenter.view2 module', function() {
 
-  beforeEach(module('controlCenter.view2'));
+  beforeEach(module('managementCenter.view2'));
 
   describe('view2 controller', function(){
 

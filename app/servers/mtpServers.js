@@ -9,7 +9,7 @@ var servicesConfig = [
     }
 ];
 
-angular.module('controlCenter.mtpServers', ['ngResource'])
+angular.module('managementCenter.mtpServers', ['ngResource'])
 .factory('monServerList', ['$resource',
     function ($resource) {
         var services = [];

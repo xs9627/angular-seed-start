@@ -1,12 +1,13 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('controlCenter', [
+angular.module('managementCenter', [
     'ui.router',
-    'controlCenter.mtpController',
-    'controlCenter.view2',
-    'controlCenter.mainController',
-    'controlCenter.version'
+    'ui.bootstrap',
+    'managementCenter.commonCtrl',
+    'managementCenter.mtpController',
+    'managementCenter.view2',
+    'managementCenter.version'
 ]).run(['$rootScope', '$state', '$stateParams',
   function ($rootScope, $state, $stateParams) {
         $rootScope.$state = $state;
@@ -19,7 +20,7 @@ angular.module('controlCenter', [
             url: '/MTP',
             //template: '<div ui-view class="container">'
             templateUrl: 'views/menu.html',
-            controller: 'mainController'
+            controller: 'menuCtrl'
         }).state("MTP.ApplicationManage", {
             url: '/ApplicationManage/:serverName',
             templateUrl: 'views/MTP/applicationManage.html',

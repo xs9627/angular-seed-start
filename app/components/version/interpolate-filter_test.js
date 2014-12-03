@@ -1,7 +1,7 @@
 'use strict';
 
-describe('controlCenter.version module', function() {
-  beforeEach(module('controlCenter.version'));
+describe('managementCenter.version module', function() {
+  beforeEach(module('managementCenter.version'));
 
   describe('interpolate filter', function() {
     beforeEach(module(function($provide) {

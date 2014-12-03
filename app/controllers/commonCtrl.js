@@ -1,5 +1,6 @@
-angular.module('controlCenter.mainController', [])
-    .controller('mainController', ['$scope', '$state',
+angular.module('managementCenter.commonCtrl', []).controller('navCollapseCtrl', ['$scope', function($scope) {
+    $scope.isCollapsed = true;
+}]).controller('menuCtrl', ['$scope', '$state',
         function ($scope, $state) {
             var isMTP = $state.includes('MTP');
             if (isMTP) {

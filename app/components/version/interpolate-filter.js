@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('controlCenter.version.interpolate-filter', [])
+angular.module('managementCenter.version.interpolate-filter', [])
 
 .filter('interpolate', ['version', function(version) {
   return function(text) {
