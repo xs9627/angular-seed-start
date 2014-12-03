@@ -27,4 +27,17 @@ angular.module('managementCenter.commonCtrl', []).controller('navCollapseCtrl', 
                     }
                 ];
             }
+}])
+.controller('navbarController',['$scope', function($scope){
+    $scope.collapsed = true;
+    $scope.getCtrlScope = function() {
+         return $scope;   
+    }
+    $scope.menus = [{"name":"IIS Management", "state" : "IIS", "items" : [{"label" : "Application Pool", "href" : "view2"}]}
+                   ,{"name" : "MTP", "state" : "MTP", "items" : [{"label" : "Application Manage", "href" : "ApplicationManage"},
+                                                                 {"label" : "Application Deploy", "href" : "empty({temp:1})"},
+                                                                 {"label" : "Manage Config", "href" : "empty({temp:2})"},
+                                                                 {"label" : "Dispatch", "href" : "empty({temp:3})"},
+                                                                 {"label" : "View Config", "href" : "empty({temp:4})"},]}
+                   ];
 }]);
