@@ -1,0 +1,19 @@
+<div class="row row-offcanvas row-offcanvas-left fill" ng-class="{active: active}">
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
+        <div class="navbar navbar-default">
+            <ul class="nav nav-pills nav-stacked">
+                <li ui-sref-active="active" ng-repeat="menu in menuList">
+                    <a ui-sref="{{menu.href}}">{{menu.label}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+          <p class="pull-left visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" ng-click="active = !active">{{active?'<<':'>>'}}</button>
+          </p>
+    <div class="col-xs-12 col-sm-9 fill">
+        <div ui-view class="fill">
+        </div>
+    </div>
+</div>
+<!--http://getbootstrap.com/examples/offcanvas/-->
