@@ -1,17 +1,6 @@
-var servicesConfig = [
-    {
-        name: 'WXMIS007',
-        url: 'http://localhost/WEB.MonitorService/MonitorService.svc/XMLService/AppList'
-    },
-    {
-        name: 'WXMIS008',
-        url: ''
-    }
-];
-
-angular.module('managementCenter.mtpServers', ['ngResource'])
-.factory('monServerList', ['$resource',
-    function ($resource) {
+angular.module('managementCenter.mtpServers', ['ngResource', 'managementCenter.config'])
+.factory('monServerList', ['$resource', 'servicesConfig',
+    function ($resource, servicesConfig) {
         var services = [];
         servicesConfig.forEach(function (service) {
             services.push({

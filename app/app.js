@@ -4,7 +4,9 @@
 angular.module('managementCenter', [
     'ui.router',
     'ui.bootstrap',
+    'managementCenter.config',
     'managementCenter.commonCtrl',
+    'managementCenter.iisController',
     'managementCenter.mtpController',
     'managementCenter.view2',
     'managementCenter.version'
@@ -33,9 +35,9 @@ angular.module('managementCenter', [
             template: '<div ui-view class="container">'
         })
         .state("IIS.view2", {
-            url: '/view2',
-            templateUrl: 'views/view2.html',
-            controller: 'View2Ctrl'
+            url: '/ApplicationPool',
+            templateUrl: 'views/IIS/applicationPool.html',
+            controller: 'AppPoolCtrl'
         })
     }
 ]);

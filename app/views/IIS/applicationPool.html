@@ -1,0 +1,39 @@
+<div class="fill">
+    <div class="row content" >
+        <div class="col-xs-3">
+            <label>Server:</label>
+            <select class="form-control" ng-model="serverName" ng-options="name for name in serverNames">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="col-xs-2" style="margin-top:25px">
+            <button class="btn btn-info">Query</button>
+        </div>
+    </div>
+    <div class="row content">
+        <div class="col-xs-3" style="width:300px">
+                <script type="text/ng-template" id="applicationPoolEdit.html">
+                    <div class="modal-header">
+                        <h3 class="modal-title">{{items[0].poolName!=''?'Edit':'Add'}} Application Pool:</h3>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li ng-repeat="item in items">
+                                <a ng-click="selected.item = item">{{ item.poolName }}</a>
+                            </li>
+                        </ul>
+                        Selected: <b>{{ selected.item.poolName }}</b>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" ng-click="ok()">OK</button>
+                        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                    </div>
+                </script>
+            <button class="btn btn-sm btn-info" ng-click="open('Add')">Add</button>
+            <button class="btn btn-sm btn-info" ng-click="open('Edit')">Edit</button>
+            <button class="btn btn-sm btn-info">Delete</button>
+        </div>
+    </div>
+
+    <div id="grid1" ui-grid="gridOptions" ui-grid-selection class="grid" external-scopes="$scope" ui-grid-auto-resize></div>
+</div>
