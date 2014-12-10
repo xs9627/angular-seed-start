@@ -1,6 +1,7 @@
-angular.module('managementCenter.iisController',['ui.bootstrap'])
+angular.module('managementCenter.iisController',[])
 .controller('AppPoolCtrl', 
             ['$scope', '$modal', function($scope, $modal){
+                $scope.serverHoldPlace = "Select Server";
                 $scope.serverNames = ['1','2'];
                 $scope.open = function(type){
                     var items;
