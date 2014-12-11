@@ -61,7 +61,7 @@ angular.module('managementCenter.mtpController',['ui.utils', 'ui.grid', 'ui.grid
                 $scope.gridApi = gridApi;
                 gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                     var msg = 'row selected ' + row.isSelected;
-                    $log.log(msg);
+                    //$log.log(msg);
                 });
 
                 //                gridApi.selection.on.rowSelectionChangedBatch($scope, function (rows) {
